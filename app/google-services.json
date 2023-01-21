@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "969768597990",
+    "project_id": "paradox-exe",
+    "storage_bucket": "paradox-exe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969768597990:android:dee7e64bd8206aa88f3e27",
+        "android_client_info": {
+          "package_name": "com.exe.paradox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969768597990-5atd8t54r910g9u5qa5bjogb19adch54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exe.paradox",
+            "certificate_hash": "024ae90a7a50aa81262019ef1f421c7d3b210411"
+          }
+        },
+        {
+          "client_id": "969768597990-n9godlfh3b78cfo1a0ebo7o3ud3dnkf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABGtzvzgExzmCvHbDcfwsdrrAX7bpTM2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969768597990-558oockigjr2mm2kvogjr5fedb7333m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
