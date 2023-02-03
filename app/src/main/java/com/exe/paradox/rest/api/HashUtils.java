@@ -16,7 +16,7 @@ import java.util.Random;
 public class HashUtils {
     private final static String APP_SECRET = "mrigank_sir_op";
     private static final boolean isHashingEnabled = true;
-    private static  final boolean isEncryptionEnabled = false;
+    private static  final boolean isEncryptionEnabled = true;
     private static String getRandomSalt() {
         Random random = new Random();
         return String.valueOf(random.nextInt(900));

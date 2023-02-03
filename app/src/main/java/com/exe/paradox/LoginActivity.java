@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.exe.paradox.rest.api.APIMethods;
+import com.exe.paradox.rest.api.interfaces.APIResponseListener;
+import com.exe.paradox.rest.response.CreateUserRP;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
 import com.google.android.gms.auth.api.identity.BeginSignInResult;
@@ -87,10 +90,21 @@ public class LoginActivity extends AppCompatActivity implements OnConnectionFail
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
-//                                            if (task.getResult().getAdditionalUserInfo().isNewUser()){
-//                                                Todo: Sign in user with profile details
-                                            //return;
-//                                            }
+                                            if (task.getResult().getAdditionalUserInfo().isNewUser()){
+                                                APIMethods.createUser(new APIResponseListener<CreateUserRP>() {
+                                                    @Override
+                                                    public void success(CreateUserRP response) {
+                                                        LoginActivity.this.success("Login Successful");
+                                                        updateUI(mAuth.getCurrentUser());
+                                                    }
+
+                                                    @Override
+                                                    public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
+
+                                                    }
+                                                });
+                                                return;
+                                            }
                                             FirebaseUser user = mAuth.getCurrentUser();
                                             updateUI(user);
                                         } else {
@@ -136,11 +150,21 @@ public class LoginActivity extends AppCompatActivity implements OnConnectionFail
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
                         if(task.isSuccessful()){
-                            success("Login Successful");
-//                            if (task.getResult().getAdditionalUserInfo().isNewUser()){
-//                                Todo: Make a new profile;
-//                                return;
-//                            }
+                            if (task.getResult().getAdditionalUserInfo().isNewUser()){
+                                APIMethods.createUser(new APIResponseListener<CreateUserRP>() {
+                                    @Override
+                                    public void success(CreateUserRP response) {
+                                        LoginActivity.this.success("Login Successful");
+                                        updateUI(mAuth.getCurrentUser());
+                                    }
+
+                                    @Override
+                                    public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
+
+                                    }
+                                });
+                                return;
+                            }
                             updateUI(mAuth.getCurrentUser());
                         }else{
                             Log.w(TAG, "signInWithCredential" + task.getException().getMessage());
