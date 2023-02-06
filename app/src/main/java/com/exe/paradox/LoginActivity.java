@@ -9,6 +9,7 @@ import android.content.IntentSender;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity implements OnConnectionFailedListener, GoogleApiClient.OnConnectionFailedListener {
 
-    private MaterialButton googleLoginBtn;
+    private FrameLayout googleLoginBtn;
     private ProgressBar progressBar;
     private BeginSignInRequest signInRequest;
 
@@ -267,7 +268,7 @@ public class LoginActivity extends AppCompatActivity implements OnConnectionFail
 
 
     private void findViews() {
-        googleLoginBtn = findViewById(R.id.loginBtn);
+        googleLoginBtn = findViewById(R.id.googleLoginBtn);
         progressBar = findViewById(R.id.progresBar);
     }
 
