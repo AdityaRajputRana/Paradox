@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.exe.paradox.Tools.Method;
 import com.exe.paradox.rest.api.APIMethods;
 import com.exe.paradox.rest.api.interfaces.APIResponseListener;
 import com.exe.paradox.rest.response.CreateUserRP;
@@ -100,7 +101,8 @@ public class LoginActivity extends AppCompatActivity implements OnConnectionFail
 
                                                     @Override
                                                     public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
-
+                                                        progressBar.setVisibility(View.GONE);
+                                                        Method.showFailedAlert(LoginActivity.this, code + " - " +  message);
                                                     }
                                                 });
                                                 return;
@@ -160,7 +162,8 @@ public class LoginActivity extends AppCompatActivity implements OnConnectionFail
 
                                     @Override
                                     public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
-
+                                        progressBar.setVisibility(View.GONE);
+                                        Method.showFailedAlert(LoginActivity.this, code + " - " +  message);
                                     }
                                 });
                                 return;
