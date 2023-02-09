@@ -1,8 +1,9 @@
-package com.exe.paradox.Fragments;
+package com.exe.paradox.MainFragments;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.exe.paradox.LoginActivity;
+import com.exe.paradox.Adapters.BannerPageAdapter;
 import com.exe.paradox.R;
 import com.exe.paradox.Tools.Method;
+import com.exe.paradox.Tools.TimeUtils;
 import com.exe.paradox.rest.api.APIMethods;
 import com.exe.paradox.rest.api.interfaces.APIResponseListener;
 import com.exe.paradox.rest.response.HomeRP;
@@ -32,6 +34,7 @@ public class HomeFragment extends Fragment {
     TextView playerNameTxt;
     LinearLayout teamInfoLayout;
     LinearLayout levelLayout;
+    ViewPager viewPager;
 
 
     public HomeFragment() {
@@ -69,8 +72,44 @@ public class HomeFragment extends Fragment {
 
     private void showData() {
         playerNameTxt.setText(homeRP.getPlayerName());
+        if (homeRP.isSolo()){
+            teamNameTxt.setText("(Playing Solo)");
+        } else {
+            teamNameTxt.setText(homeRP.getTeamName());
+        }
+
+        if (homeRP.isLevelActive()){
+            topTxt.setText("Level");
+            middleTxt.setText(homeRP.getLevelName());
+            bottomTxt.setText("Enter");
+        } else {
+            //Todo: Implement a counter and update once counter ends
+            TimeUtils.TimeDifference timeDifference = new TimeUtils().getTimeDifference();
+            topTxt.setText("Level " + homeRP.getLevelName() + " starting in");
+            TimeUtils.getDifference(timeDifference, homeRP.getLevelStartsAt());
+            middleTxt.setText(timeDifference.time);
+            bottomTxt.setText(timeDifference.units);
+        }
+
+        //Todo: If the level is locked update UI
+
+        levelLayout.setOnClickListener(view -> onLevelClick());
+        teamInfoLayout.setOnClickListener(view -> changeTeam());
         progressBar.setVisibility(View.GONE);
         mainLayout.setVisibility(View.VISIBLE);
+
+        //showingBanners
+        BannerPageAdapter adapter = new BannerPageAdapter(getActivity().getSupportFragmentManager(), homeRP.getBanners(), homeRP.getLeaderboard(), getActivity());
+        viewPager.setAdapter(adapter);
+
+    }
+
+    private void changeTeam() {
+        //Todo: show dialog to change solo/team/join other team
+    }
+
+    private void onLevelClick() {
+        //Todo launch another activity or toast that level is not yet unlocked
     }
 
     @Override
@@ -94,5 +133,6 @@ public class HomeFragment extends Fragment {
 
         progressBar = v.findViewById(R.id.progresBar);
         mainLayout = v.findViewById(R.id.mainLayout);
+        viewPager = v.findViewById(R.id.viewPager);
     }
 }

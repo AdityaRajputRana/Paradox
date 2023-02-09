@@ -1,4 +1,4 @@
-package com.exe.paradox.Fragments;
+package com.exe.paradox.MainFragments;
 
 import android.os.Bundle;
 
@@ -10,15 +10,17 @@ import android.view.ViewGroup;
 
 import com.exe.paradox.R;
 
-public class RulesFragment extends Fragment {
-    public RulesFragment() {
+
+public class PrizesFragment extends Fragment {
+
+    public PrizesFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_rules, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_prizes, container, false);
     }
 }

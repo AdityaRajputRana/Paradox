@@ -6,20 +6,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.exe.paradox.Fragments.HomeFragment;
-import com.exe.paradox.Fragments.LeaderboardFragment;
-import com.exe.paradox.Fragments.PrizesFragment;
-import com.exe.paradox.Fragments.ProfileFragment;
-import com.exe.paradox.Fragments.RulesFragment;
-import com.exe.paradox.rest.api.APIMethods;
-import com.exe.paradox.rest.api.interfaces.APIResponseListener;
-import com.exe.paradox.rest.response.CreateUserRP;
-import com.google.android.material.bottomappbar.BottomAppBar;
+import com.exe.paradox.MainFragments.HomeFragment;
+import com.exe.paradox.MainFragments.LeaderboardFragment;
+import com.exe.paradox.MainFragments.PrizesFragment;
+import com.exe.paradox.MainFragments.ProfileFragment;
+import com.exe.paradox.MainFragments.RulesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 

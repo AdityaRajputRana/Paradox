@@ -34,6 +34,10 @@ public class HomeRP {
         return level;
     }
 
+    public String getLevelName(){
+        return String.valueOf(level);
+    }
+
     public String getPlayerName() {
         return playerName;
     }

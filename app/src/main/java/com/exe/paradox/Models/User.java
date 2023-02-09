@@ -4,6 +4,15 @@ public class User {
     String name;
     String uid;
     String displayPicture;
+    int score;
+
+    public int getPoints() {
+        return score;
+    }
+    public int getScore() {
+        return score;
+    }
+
     int rank;
 
     public User() {
