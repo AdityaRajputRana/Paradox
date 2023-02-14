@@ -3,22 +3,21 @@
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/common_full_open_on_phone"/>
+        android:icon="@drawable/home_icon"/>
     <item
         android:id="@+id/leaderboard"
         android:title="Leaderboard"
-        android:icon="@drawable/common_full_open_on_phone"/>
+        android:icon="@drawable/graph_bar"/>
     <item
         android:id="@+id/rules"
         android:title="Rules"
-        android:icon="@drawable/common_full_open_on_phone"/>
+        android:icon="@drawable/list_ul"/>
     <item
         android:id="@+id/prizes"
         android:title="Prizes"
-        android:icon="@drawable/common_full_open_on_phone"/>
+        android:icon="@drawable/cup"/>
     <item
         android:id="@+id/profile"
         android:title="Profile"
-        android:icon="@drawable/common_full_open_on_phone"/>
-
+        android:icon="@drawable/user_icon"/>
 </menu>
