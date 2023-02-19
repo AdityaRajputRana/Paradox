@@ -26,14 +26,14 @@
             android:id="@+id/tv_leaderboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Leaderboard"
-            android:textSize="25sp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="56dp"
             android:fontFamily="@font/quantum"
+            android:text="Leaderboard"
             android:textColor="@color/white"
+            android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_heading"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"/>
+            app:layout_constraintTop_toBottomOf="@id/iv_heading" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
