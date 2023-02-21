@@ -5,6 +5,21 @@ public class User {
     String uid;
     String displayPicture;
     int score;
+    String roll;
+    String ref_code;
+    String team_code;
+
+    public String getRoll() {
+        return roll;
+    }
+
+    public String getRef_code() {
+        return ref_code;
+    }
+
+    public String getTeam_code() {
+        return team_code;
+    }
 
     public int getPoints() {
         return score;

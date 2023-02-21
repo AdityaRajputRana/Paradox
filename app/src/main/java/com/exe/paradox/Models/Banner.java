@@ -4,24 +4,24 @@ public class Banner {
         public Banner() {
         }
 
-        private String redirectUrl, id, imageUrl, text;
+        private String redirectLink, _id, imageUrl, text;
 
 
         public String getRedirectUrl() {
-            return redirectUrl;
+            return redirectLink;
         }
 
         public void setRedirectUrl(String redirectUrl) {
-            this.redirectUrl = redirectUrl;
+            this.redirectLink = redirectUrl;
         }
 
 
         public String getId() {
-            return id;
+            return _id;
         }
 
         public void setId(String id) {
-            this.id = id;
+            this._id = id;
         }
 
         public String getText() {
@@ -41,9 +41,9 @@ public class Banner {
         }
 
         public Banner(String id, String imageUrl, String redirectUrl, String text) {
-            this.id = id;
+            this._id = id;
             this.imageUrl = imageUrl;
-            this.redirectUrl = redirectUrl;
+            this.redirectLink = redirectUrl;
             this.text = text;
         }
 }
