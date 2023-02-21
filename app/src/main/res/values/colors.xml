@@ -29,4 +29,6 @@
     <color name="white">#FFFFFF</color>
 
     <color name="progress_bg">#564F92</color>
+    <color name="nav_bar_color">#050510</color>
+    <color name="leaderboard_bg_color">#8023192D</color>
 </resources>
