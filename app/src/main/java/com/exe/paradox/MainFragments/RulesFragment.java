@@ -1,4 +1,4 @@
-package com.exe.paradox.Fragments;
+package com.exe.paradox.MainFragments;
 
 import android.os.Bundle;
 
