@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +54,7 @@ public class HomeFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
         mainLayout.setVisibility(View.GONE);
 
+        Log.i("eta", "fetching home");
         APIMethods.getHome(new APIResponseListener<HomeRP>() {
             @Override
             public void success(HomeRP response) {
@@ -118,6 +120,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         findViews(v);
+        getData();
         return v;
     }
 
@@ -131,7 +134,7 @@ public class HomeFragment extends Fragment {
         teamInfoLayout = v.findViewById(R.id.teamInfoLayout);
         levelLayout = v.findViewById(R.id.levelLayout);
 
-        progressBar = v.findViewById(R.id.progresBar);
+        progressBar = v.findViewById(R.id.progressBar);
         mainLayout = v.findViewById(R.id.mainLayout);
         viewPager = v.findViewById(R.id.viewPager);
     }
