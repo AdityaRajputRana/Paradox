@@ -57,7 +57,7 @@ public class HomeRP {
     }
 
     public long getLevelStartsInSeconds() {
-        return levelData.levelStartsInSeconds;
+        return (long) levelData.levelStartsInSeconds;
     }
 
     public long getLevelStartsAt() {

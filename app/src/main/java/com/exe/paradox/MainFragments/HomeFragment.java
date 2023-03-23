@@ -1,5 +1,6 @@
 package com.exe.paradox.MainFragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,14 +13,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.exe.paradox.Adapters.BannerPageAdapter;
+import com.exe.paradox.Level1Activity;
 import com.exe.paradox.R;
 import com.exe.paradox.Tools.Method;
 import com.exe.paradox.Tools.TimeUtils;
 import com.exe.paradox.rest.api.APIMethods;
 import com.exe.paradox.rest.api.interfaces.APIResponseListener;
 import com.exe.paradox.rest.response.HomeRP;
+import com.google.gson.Gson;
 
 public class HomeFragment extends Fragment {
 
@@ -111,6 +115,16 @@ public class HomeFragment extends Fragment {
     }
 
     private void onLevelClick() {
+        if (!homeRP.isLevelActive()){
+            Toast.makeText(getActivity(), "Level is not yet active!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (homeRP.getLevel() == 1){
+            Intent i = new Intent(getActivity(), Level1Activity.class);
+            i.putExtra("homeRP", new Gson().toJson(homeRP));
+            startActivity(i);
+        }
         //Todo launch another activity or toast that level is not yet unlocked
     }
 
