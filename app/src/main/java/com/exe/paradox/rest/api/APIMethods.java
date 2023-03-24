@@ -9,6 +9,7 @@ import com.exe.paradox.rest.requests.Level1Req;
 import com.exe.paradox.rest.response.CreateUserRP;
 import com.exe.paradox.rest.response.HomeRP;
 import com.exe.paradox.rest.response.Level1RP;
+import com.exe.paradox.rest.response.RanklistRP;
 
 public class APIMethods {
     public static void createUser(APIResponseListener<CreateUserRP> listener) {
@@ -31,4 +32,15 @@ public class APIMethods {
         API.postData(listener, req, EndPoints.submitLevel1Answer, Level1RP.class);
     }
 
+
+    public static void getRanklist(APIResponseListener<RanklistRP> listener){
+        HomeReq req = new HomeReq();
+        API.postData(listener, req, EndPoints.rankList, RanklistRP.class);
+    }
+
+    //paginated leaderboard
+    public static void getRanklist(int page, APIResponseListener<RanklistRP> listener){
+        HomeReq req = new HomeReq(page);
+        API.postData(listener, req, EndPoints.rankList, RanklistRP.class);
+    }
 }

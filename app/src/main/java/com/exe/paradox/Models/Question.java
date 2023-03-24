@@ -7,7 +7,7 @@ public class Question {
     String _id;
     String questionId;
     String question;
-    ArrayList<String> images;
+    String image;
     String answer; //Not to be given by server
 
     public Question() {
@@ -21,7 +21,7 @@ public class Question {
         return question;
     }
 
-    public ArrayList<String> getImages() {
-        return images;
+    public String getImage() {
+        return image;
     }
 }

@@ -105,7 +105,7 @@ public class Level1Activity extends AppCompatActivity {
         binding.questionTxt.setText(response.getNextQuestion().getQuestion());
 
         Picasso.get()
-                .load(response.getNextQuestion().getImages().get(0))
+                .load(response.getNextQuestion().getImage())
                 .into(binding.questionImg);
 
     }
