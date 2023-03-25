@@ -2,6 +2,7 @@ package com.exe.paradox.rest.api;
 
 
 import com.exe.paradox.Level1Activity;
+import com.exe.paradox.Models.User;
 import com.exe.paradox.rest.api.interfaces.APIResponseListener;
 import com.exe.paradox.rest.requests.CreateUserReq;
 import com.exe.paradox.rest.requests.HomeReq;
@@ -42,5 +43,11 @@ public class APIMethods {
     public static void getRanklist(int page, APIResponseListener<RanklistRP> listener){
         HomeReq req = new HomeReq(page);
         API.postData(listener, req, EndPoints.rankList, RanklistRP.class);
+    }
+
+
+    public static void getProfile(APIResponseListener<User> listener){
+        HomeReq req = new HomeReq();
+        API.postData(listener, req, EndPoints.profile, User.class);
     }
 }

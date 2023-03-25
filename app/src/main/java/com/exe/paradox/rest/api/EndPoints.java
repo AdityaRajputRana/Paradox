@@ -7,4 +7,5 @@ public class EndPoints {
     public static String getLevel1Question = "play/level1/ques";
     public static String submitLevel1Answer = "play/level1/answer";
     public static String rankList = "leaderboard";
+    public static String profile = "profile";
 }

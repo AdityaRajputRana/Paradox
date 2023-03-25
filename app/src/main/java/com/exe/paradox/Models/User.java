@@ -4,10 +4,34 @@ public class User {
     String name;
     String uid;
     String displayPicture;
-    int score;
     String roll;
     String ref_code;
     String team_code;
+
+    String teamName;
+    int coins;
+    int level;
+    int attempts;
+    int score;
+    int rank;
+
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getAttempts() {
+        return attempts;
+    }
+
 
     public String getRoll() {
         return roll;
@@ -28,7 +52,6 @@ public class User {
         return score;
     }
 
-    int rank;
 
     public User() {
     }
