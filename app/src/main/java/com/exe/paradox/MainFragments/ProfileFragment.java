@@ -81,6 +81,13 @@ public class ProfileFragment extends Fragment {
             binding.nameTxt.setText(user.getName());
         }
 
+        if (user.getTeamName() != null && !user.getTeamName().isEmpty()){
+            binding.teamTxt.setVisibility(View.VISIBLE);
+            binding.teamTxt.setText(user.getTeamName());
+        } else {
+            binding.teamTxt.setVisibility(View.GONE);
+        }
+
         if (user.getDisplayPicture() != null && !user.getDisplayPicture().isEmpty()){
             binding.profileImg.setVisibility(View.VISIBLE);
             Picasso.get()

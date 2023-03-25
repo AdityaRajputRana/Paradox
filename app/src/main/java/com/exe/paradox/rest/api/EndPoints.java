@@ -8,4 +8,5 @@ public class EndPoints {
     public static String submitLevel1Answer = "play/level1/answer";
     public static String rankList = "leaderboard";
     public static String profile = "profile";
+    public static String rules = "rules";
 }
