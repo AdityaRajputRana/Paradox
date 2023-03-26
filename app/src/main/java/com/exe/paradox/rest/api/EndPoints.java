@@ -9,4 +9,5 @@ public class EndPoints {
     public static String rankList = "leaderboard";
     public static String profile = "profile";
     public static String rules = "rules";
+    public static String prizes = "prizes";
 }
