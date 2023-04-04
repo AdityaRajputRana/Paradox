@@ -10,4 +10,8 @@ public class EndPoints {
     public static String profile = "profile";
     public static String rules = "rules";
     public static String prizes = "prizes";
+
+    public static String joinTeam = "team/join";
+    public static String createTeam = "team/create";
+    public static String getTeamDetails = "team/details";
 }

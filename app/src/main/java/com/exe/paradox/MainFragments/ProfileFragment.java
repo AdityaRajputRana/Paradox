@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.exe.paradox.LoginActivity;
 import com.exe.paradox.Models.User;
 import com.exe.paradox.R;
+import com.exe.paradox.TeamActivity;
 import com.exe.paradox.Tools.Method;
 import com.exe.paradox.databinding.FragmentLeaderboardBinding;
 import com.exe.paradox.databinding.FragmentProfileBinding;
@@ -137,6 +138,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void setListeners() {
+        binding.teamTxt.setOnClickListener(view -> startActivity(new Intent(getActivity(), TeamActivity.class)));
         binding.logoutBtn.setOnClickListener(view ->{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Log out")

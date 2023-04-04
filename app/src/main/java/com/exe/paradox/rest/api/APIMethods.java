@@ -4,8 +4,10 @@ package com.exe.paradox.rest.api;
 import com.exe.paradox.Level1Activity;
 import com.exe.paradox.Models.User;
 import com.exe.paradox.rest.api.interfaces.APIResponseListener;
+import com.exe.paradox.rest.requests.CreateTeamReq;
 import com.exe.paradox.rest.requests.CreateUserReq;
 import com.exe.paradox.rest.requests.HomeReq;
+import com.exe.paradox.rest.requests.JoinTeamReq;
 import com.exe.paradox.rest.requests.Level1Req;
 import com.exe.paradox.rest.response.CreateUserRP;
 import com.exe.paradox.rest.response.HomeRP;
@@ -13,6 +15,7 @@ import com.exe.paradox.rest.response.Level1RP;
 import com.exe.paradox.rest.response.PrizesRP;
 import com.exe.paradox.rest.response.RanklistRP;
 import com.exe.paradox.rest.response.RulesRP;
+import com.exe.paradox.rest.response.TeamDetailsRP;
 
 public class APIMethods {
     public static void createUser(APIResponseListener<CreateUserRP> listener) {
@@ -61,5 +64,20 @@ public class APIMethods {
     public static void getPrizes(APIResponseListener<PrizesRP> listener){
         HomeReq req = new HomeReq();
         API.postData(listener, req, EndPoints.prizes, PrizesRP.class);
+    }
+
+    public static void joinTeam(String teamId, APIResponseListener<TeamDetailsRP> listener){
+        JoinTeamReq req = new JoinTeamReq(teamId);
+        API.postData(listener, req, EndPoints.joinTeam, TeamDetailsRP.class);
+    }
+
+    public static void createTeam(String teamName, APIResponseListener<TeamDetailsRP> listener){
+        CreateTeamReq req = new CreateTeamReq(teamName);
+        API.postData(listener, req, EndPoints.createTeam, TeamDetailsRP.class);
+    }
+
+    public static void getTeamInformation(APIResponseListener<TeamDetailsRP> listener){
+        HomeReq req = new HomeReq();
+        API.postData(listener, req, EndPoints.getTeamDetails, TeamDetailsRP.class);
     }
 }
