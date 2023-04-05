@@ -12,6 +12,7 @@ import com.exe.paradox.rest.requests.Level1Req;
 import com.exe.paradox.rest.response.CreateUserRP;
 import com.exe.paradox.rest.response.HomeRP;
 import com.exe.paradox.rest.response.Level1RP;
+import com.exe.paradox.rest.response.Level2RP;
 import com.exe.paradox.rest.response.PrizesRP;
 import com.exe.paradox.rest.response.RanklistRP;
 import com.exe.paradox.rest.response.RulesRP;
@@ -38,6 +39,16 @@ public class APIMethods {
         API.postData(listener, req, EndPoints.submitLevel1Answer, Level1RP.class);
     }
 
+
+    public static void getLevel2Question(APIResponseListener<Level2RP> listener){
+        HomeReq req = new HomeReq();
+        API.postData(listener, req, EndPoints.level2Question, Level2RP.class);
+    }
+
+    public static void submitLevel2Answer(String answer, APIResponseListener<Level2RP> listener){
+        Level1Req req = new Level1Req(answer);
+        API.postData(listener, req, EndPoints.submitLevel2Answer, Level2RP.class);
+    }
 
     public static void getRanklist(APIResponseListener<RanklistRP> listener){
         HomeReq req = new HomeReq();

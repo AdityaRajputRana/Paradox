@@ -14,4 +14,7 @@ public class EndPoints {
     public static String joinTeam = "team/join";
     public static String createTeam = "team/create";
     public static String getTeamDetails = "team/details";
+
+    public static String level2Question = "play/level2/ques";
+    public static String submitLevel2Answer = "play/level2/answer";
 }

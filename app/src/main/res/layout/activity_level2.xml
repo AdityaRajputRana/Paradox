@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Level2Activity">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"/>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/questionLayout"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/officerTxt"
+            android:text=""
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/questionNumberTxt"
+                android:text="Q3."
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="20sp"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/questionTxt"
+                android:text="What is the meaning of the following image?"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_medium" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="225dp"
+            android:background="@drawable/graph_bar"
+            android:id="@+id/questionImg" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/answerEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f6f6f6"
+            android:padding="16dp"
+            android:hint="Answer"
+            android:fontFamily="@font/poppins"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Submit Answer"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            app:cornerRadius="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
