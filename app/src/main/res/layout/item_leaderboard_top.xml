@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:background="@drawable/bg_semiround_prim">
+        android:background="@color/color_fg">
 
     <ImageView
         android:id="@+id/iv_heading"
@@ -37,6 +37,23 @@
         app:layout_constraintTop_toBottomOf="@id/iv_heading" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/infoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:padding="16dp"
+        android:background="@color/color_fg"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/color_primary_txt"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/contentLayout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -103,6 +120,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="visible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/secondLayout"
@@ -112,7 +130,8 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toStartOf="@id/firstLayout"
             android:layout_marginEnd="-16dp"
-            android:layout_marginTop="-70dp">
+            android:layout_marginTop="-70dp"
+            >
 
             <LinearLayout
                 android:layout_width="105dp"
@@ -131,6 +150,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="visible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -301,5 +321,7 @@
         android:paddingEnd="8dp"
         android:paddingBottom="16dp"
         android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

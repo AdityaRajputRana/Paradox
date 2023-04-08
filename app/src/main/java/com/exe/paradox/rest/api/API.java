@@ -106,7 +106,7 @@ public class API {
                                 Boolean successful = response.getBoolean("success");
                                 if (successful) {
                                     if (response.getString("data") != null
-                                    && !response.getString("data").isEmpty()) {
+                                    && !response.getString("data").isEmpty() && !response.getString("data").trim().isEmpty()) {
                                         String data = "";
                                         if (klass == ArrayList.class){
                                              data = response.getJSONArray("data").toString();

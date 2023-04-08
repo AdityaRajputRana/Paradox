@@ -4,9 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.exe.paradox.Models.RankModel;
@@ -62,9 +64,13 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
             PositionViewHolder holder = (PositionViewHolder) viewHolder;
             if (RanklistRP.getLeaderboard() == null
                     || RanklistRP.getLeaderboard().size() == 0){
-                holder.firstTxt.setText("Leaderboard is not ready yet please come back later.");
+                holder.infoTxt.setText("Leaderboard is not ready yet please come back later.");
+                holder.infoTxt.setVisibility(View.VISIBLE);
+                holder.topLayout.setVisibility(View.GONE);
                 return;
             }
+            holder.infoTxt.setVisibility(View.GONE);
+            holder.topLayout.setVisibility(View.VISIBLE);
             ArrayList<RankModel> leaderBoard = RanklistRP.getLeaderboard();
 
             if (leaderBoard.get(0).getDisplay_picture() != null
@@ -144,6 +150,8 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
 
     public class PositionViewHolder extends RecyclerView.ViewHolder{
 
+        TextView infoTxt;
+        LinearLayout topLayout;
         ImageView firstImg;
         ImageView secondImg;
         ImageView thirdImg;
@@ -181,6 +189,8 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
             scoreTxt = itemView.findViewById(R.id.scoreTxt);
             displayImg = itemView.findViewById(R.id.displayImg);
 
+            topLayout = itemView.findViewById(R.id.contentLayout);
+            infoTxt = itemView.findViewById(R.id.infoTxt);
         }
     }
 

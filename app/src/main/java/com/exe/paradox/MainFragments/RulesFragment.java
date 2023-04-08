@@ -37,6 +37,7 @@ public class RulesFragment extends Fragment {
 
     private void loadRules() {
         if (rulesRP != null) {
+            setUI();
             return;
         }
         APIMethods.getRules(new APIResponseListener<RulesRP>() {
@@ -56,6 +57,7 @@ public class RulesFragment extends Fragment {
     }
 
     private void setUI() {
+        binding.progressBar.setVisibility(View.GONE);
         if (rulesRP.getHeader() != null && !rulesRP.getHeader().isEmpty()) {
             binding.headTxt.setVisibility(View.VISIBLE);
             binding.headTxt.setText(rulesRP.getHeader());
