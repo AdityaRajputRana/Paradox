@@ -86,7 +86,8 @@ public class ProfileFragment extends Fragment {
             binding.teamTxt.setVisibility(View.VISIBLE);
             binding.teamTxt.setText(user.getTeamName());
         } else {
-            binding.teamTxt.setVisibility(View.GONE);
+            binding.teamTxt.setText("Join Team");
+            binding.teamTxt.setVisibility(View.VISIBLE);
         }
 
         if (user.getDisplayPicture() != null && !user.getDisplayPicture().isEmpty()){
