@@ -105,9 +105,16 @@ public class TeamActivity extends AppCompatActivity {
 
             binding.teamNameTxt.setText(teamDetailsRP.getTeamName());
             binding.teamCode.setText(teamDetailsRP.getTeamCode());
-            if (teamDetailsRP.getFieldOfficer() != null)
+            if (teamDetailsRP.getControlOffice() != null){
+                binding.coTxt.setText(teamDetailsRP.getControlOffice().getName() + " (CO)");
+            }
+            if (teamDetailsRP.getFieldOfficer() != null
+            && teamDetailsRP.getFieldOfficer().getName() != null
+            && !teamDetailsRP.getFieldOfficer().getName().isEmpty()) {
                 binding.foTxt.setText(teamDetailsRP.getFieldOfficer().getName() + " (FO)");
-            binding.coTxt.setText(teamDetailsRP.getFieldOfficer().getName() + " (CO)");
+            } else {
+                binding.foTxt.setVisibility(View.GONE);
+            }
         } else {
             showJoinTeamLayout();
         }

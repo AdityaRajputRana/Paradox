@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.exe.paradox.Fragments.BannerFragment;
 import com.exe.paradox.Fragments.TopLeaderboardFragment;
 import com.exe.paradox.Models.Banner;
+import com.exe.paradox.Models.RankModel;
 import com.exe.paradox.Models.User;
 
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ import java.util.ArrayList;
 public class BannerPageAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Banner> banners;
-    private ArrayList<User> leaderboard;
+    private ArrayList<RankModel> leaderboard;
     FragmentManager fragmentManager;
 
-    public BannerPageAdapter(@NonNull FragmentManager fm, ArrayList<Banner> banners, ArrayList<User> leaderboard, Context context) {
+    public BannerPageAdapter(@NonNull FragmentManager fm, ArrayList<Banner> banners, ArrayList<RankModel> leaderboard, Context context) {
         super(fm);
         fragmentManager = fm;
         this.banners = banners;

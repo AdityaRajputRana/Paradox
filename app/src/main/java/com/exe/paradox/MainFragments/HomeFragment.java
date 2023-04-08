@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.exe.paradox.Adapters.BannerPageAdapter;
 import com.exe.paradox.Level1Activity;
+import com.exe.paradox.Level2Activity;
 import com.exe.paradox.R;
 import com.exe.paradox.Tools.Method;
 import com.exe.paradox.Tools.TimeUtils;
@@ -88,7 +89,12 @@ public class HomeFragment extends Fragment {
             topTxt.setText("Level");
             middleTxt.setText(homeRP.getLevelName());
             bottomTxt.setText("Enter");
+            levelEndsInTxt.setVisibility(View.VISIBLE);
+            TimeUtils.TimeDifference timeDifference = new TimeUtils().getTimeDifference();
+            TimeUtils.getDifference(timeDifference, homeRP.getLevelEndsAt());
+            levelEndsInTxt.setText(String.format("Level %d ends in %s %s", homeRP.getLevel(), timeDifference.time, timeDifference.units));
         } else {
+            levelEndsInTxt.setVisibility(View.GONE);
             //Todo: Implement a counter and update once counter ends
             TimeUtils.TimeDifference timeDifference = new TimeUtils().getTimeDifference();
             topTxt.setText("Level " + homeRP.getLevelName() + " starting in");
@@ -105,8 +111,23 @@ public class HomeFragment extends Fragment {
         mainLayout.setVisibility(View.VISIBLE);
 
         //showingBanners
+
+        viewPager.setAdapter(null);
         BannerPageAdapter adapter = new BannerPageAdapter(getActivity().getSupportFragmentManager(), homeRP.getBanners(), homeRP.getLeaderboard(), getActivity());
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(0);
+        viewPager.setCurrentItem(0);
+
+        if (homeRP.getLevel() == -1){
+            topTxt.setText("GAME OVER");
+            middleTxt.setVisibility(View.GONE);
+            bottomTxt.setTextSize(14);
+            bottomTxt.setText("Paradox ended for this year. This year's paradox has been a success and team .EXE is thankful for that.\nHope to see you again next year at NIMBUS\n\n Developed by Aditya Rana, Akhil Jamwal and Aryan Prashar");
+            levelEndsInTxt.setVisibility(View.VISIBLE);
+            levelEndsInTxt.setText("To check results please head over to leaderboard section.");
+        }
+
+
 
     }
 
@@ -115,6 +136,16 @@ public class HomeFragment extends Fragment {
     }
 
     private void onLevelClick() {
+
+        if (homeRP.getLevel() == -1){
+            Toast.makeText(getActivity(), "PARADOX is over for now! See you next year at NIMBUS again.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (homeRP.isLevelLocked()){
+            Toast.makeText(getActivity(), "You have not qualified for level " + homeRP.getLevel(), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (!homeRP.isLevelActive()){
             Toast.makeText(getActivity(), "Level is not yet active!", Toast.LENGTH_SHORT).show();
             return;
@@ -122,6 +153,12 @@ public class HomeFragment extends Fragment {
 
         if (homeRP.getLevel() == 1){
             Intent i = new Intent(getActivity(), Level1Activity.class);
+            i.putExtra("homeRP", new Gson().toJson(homeRP));
+            startActivity(i);
+        }
+
+        if (homeRP.getLevel() == 2){
+            Intent i = new Intent(getActivity(), Level2Activity.class);
             i.putExtra("homeRP", new Gson().toJson(homeRP));
             startActivity(i);
         }
@@ -138,6 +175,8 @@ public class HomeFragment extends Fragment {
         return v;
     }
 
+    TextView levelEndsInTxt;
+
     private void findViews(View v) {
         topTxt = v.findViewById(R.id.topTxt);
         middleTxt = v.findViewById(R.id.middleTxt);
@@ -146,6 +185,7 @@ public class HomeFragment extends Fragment {
         teamNameTxt = v.findViewById(R.id.teamTxt);
 
         teamInfoLayout = v.findViewById(R.id.teamInfoLayout);
+        levelEndsInTxt = v.findViewById(R.id.endsInText);
         levelLayout = v.findViewById(R.id.levelLayout);
 
         progressBar = v.findViewById(R.id.progressBar);

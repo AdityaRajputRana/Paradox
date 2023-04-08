@@ -9,7 +9,7 @@ public class TeamDetailsRP {
     boolean isInTeam;
     String teamName;
     String teamCode;
-    Officer controlOffice;
+    Officer controlOfficer;
     Officer fieldOfficer;
 
 
@@ -25,7 +25,7 @@ public class TeamDetailsRP {
     }
 
     public Officer getControlOffice() {
-        return controlOffice;
+        return controlOfficer;
     }
 
     public Officer getFieldOfficer() {

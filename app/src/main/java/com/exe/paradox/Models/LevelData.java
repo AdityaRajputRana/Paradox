@@ -5,6 +5,7 @@ public class LevelData {
     public boolean isLevelActive;
     public double levelStartsInSeconds;
     public long levelStartsAt;
+    public long levelEndsAt;
 
     public LevelData() {
     }

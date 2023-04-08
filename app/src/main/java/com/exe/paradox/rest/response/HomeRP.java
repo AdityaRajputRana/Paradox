@@ -2,6 +2,7 @@ package com.exe.paradox.rest.response;
 
 import com.exe.paradox.Models.Banner;
 import com.exe.paradox.Models.LevelData;
+import com.exe.paradox.Models.RankModel;
 import com.exe.paradox.Models.User;
 
 import java.util.ArrayList;
@@ -14,18 +15,18 @@ public class HomeRP {
     int nextQuestionNumber;
 
     LevelData levelData;
-    ArrayList<Banner> BannerList;
-    ArrayList<User> leaderboardTop;
+    ArrayList<Banner> bannerList;
+    ArrayList<RankModel> leaderboardTop;
 
     public HomeRP() {
     }
 
-    public ArrayList<User> getLeaderboard() {
+    public ArrayList<RankModel> getLeaderboard() {
         return leaderboardTop;
     }
 
     public ArrayList<Banner> getBanners() {
-        return BannerList;
+        return bannerList;
     }
 
     public int getLevel() {
@@ -62,6 +63,10 @@ public class HomeRP {
 
     public long getLevelStartsAt() {
         return levelData.levelStartsAt;
+    }
+
+    public long getLevelEndsAt() {
+        return levelData.levelEndsAt;
     }
 
     public int getNextQuestionNumber() {

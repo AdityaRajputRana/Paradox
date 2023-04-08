@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.exe.paradox.Models.RankModel;
 import com.exe.paradox.Models.User;
 import com.exe.paradox.R;
 import com.exe.paradox.Tools.Tranformations.CircleTransform;
@@ -19,14 +20,14 @@ import java.util.ArrayList;
 
 public class TopLeaderboardFragment extends Fragment {
 
-    private ArrayList<User> leaderBoard;
+    private ArrayList<RankModel> leaderBoard;
     private String points = " points";
 
     public TopLeaderboardFragment() {
         // Required empty public constructor
     }
 
-    public TopLeaderboardFragment(ArrayList<User> leaderboard){
+    public TopLeaderboardFragment(ArrayList<RankModel> leaderboard){
         this.leaderBoard = leaderboard;
     }
 
@@ -56,34 +57,34 @@ public class TopLeaderboardFragment extends Fragment {
         TextView secondScore = view.findViewById(R.id.secondScoreTxt);
         TextView thirdScore = view.findViewById(R.id.thirdScoreTxt);
 
-        if (leaderBoard.get(0).getDisplayPicture() != null
-                && !leaderBoard.get(0).getDisplayPicture().isEmpty())
+        if (leaderBoard.get(0).getDisplay_picture() != null
+                && !leaderBoard.get(0).getDisplay_picture().isEmpty())
             Picasso.get()
-                    .load(leaderBoard.get(0).getDisplayPicture())
+                    .load(leaderBoard.get(0).getDisplay_picture())
                     .transform(new CircleTransform())
                     .into(firstImg);
-        firstTxt.setText("1. " +leaderBoard.get(0).getName());
-        firstScore.setText(leaderBoard.get(0).getPoints() + points);
+        firstTxt.setText("1. " +leaderBoard.get(0).getUser_name());
+        firstScore.setText(leaderBoard.get(0).getScore() + points);
 
         if (leaderBoard.size() < 2) return;
-        if (leaderBoard.get(1).getDisplayPicture() != null
-                && !leaderBoard.get(1).getDisplayPicture().isEmpty())
+        if (leaderBoard.get(1).getDisplay_picture() != null
+                && !leaderBoard.get(1).getDisplay_picture().isEmpty())
             Picasso.get()
-                    .load(leaderBoard.get(1).getDisplayPicture())
+                    .load(leaderBoard.get(1).getDisplay_picture())
                     .transform(new CircleTransform())
                     .into(secondImg);
-        secondTxt.setText("2. " +leaderBoard.get(1).getName());
+        secondTxt.setText("2. " +leaderBoard.get(1).getUser_name());
         secondScore.setText(leaderBoard.get(1).getScore() + points);
 
         if (leaderBoard.size() < 3) return;
 
-        if (leaderBoard.get(2).getDisplayPicture() != null
-                && !leaderBoard.get(2).getDisplayPicture().isEmpty())
+        if (leaderBoard.get(2).getDisplay_picture() != null
+                && !leaderBoard.get(2).getDisplay_picture().isEmpty())
             Picasso.get()
-                    .load(leaderBoard.get(2).getDisplayPicture())
+                    .load(leaderBoard.get(2).getDisplay_picture())
                     .transform(new CircleTransform())
                     .into(thirdImg);
-        thirdTxt.setText("3. " +leaderBoard.get(2).getName());
+        thirdTxt.setText("3. " +leaderBoard.get(2).getUser_name());
         thirdScore.setText(leaderBoard.get(2).getScore() + points );
     }
 }
