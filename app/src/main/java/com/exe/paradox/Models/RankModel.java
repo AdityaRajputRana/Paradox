@@ -11,6 +11,11 @@ public class RankModel {
     int rank;
     int score;
     String display_picture;
+    String image;
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
 
     public String getUser_id() {
         if (user_id != null && !user_id.isEmpty())
@@ -33,7 +38,9 @@ public class RankModel {
     }
 
     public String getDisplay_picture() {
-        return display_picture;
+        if (display_picture != null && !display_picture.isEmpty())
+            return display_picture;
+        return image;
     }
 
     public RankModel() {

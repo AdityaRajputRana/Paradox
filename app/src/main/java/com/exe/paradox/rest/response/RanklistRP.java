@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class RanklistRP {
     RankModel myRank;
-    ArrayList<RankModel> result;
+    ArrayList<RankModel> leaderboard;
     int page;
     int limit;
     int pages;
@@ -21,7 +21,7 @@ public class RanklistRP {
     }
 
     public ArrayList<RankModel> getLeaderboard() {
-        return result;
+        return leaderboard;
     }
 
     public int getPage() {

@@ -133,6 +133,11 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
                         .into(holder.displayImg);
             }
             holder.scoreTxt.setText(rank.getScore() + points);
+
+            if (rank.getRank() == 0){
+                int r = RanklistRP.getLeaderboard().indexOf(rank) + 1;
+                rank.setRank(r);
+            }
             holder.rankTxt.setText(rank.getRank() + ".");
         }
     }

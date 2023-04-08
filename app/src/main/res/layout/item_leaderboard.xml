@@ -19,6 +19,7 @@
             android:id="@+id/rankNumberTxt"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="18sp"
+            android:textColor="@color/white"
             android:text="1." />
 
         <LinearLayout
