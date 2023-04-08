@@ -1,6 +1,8 @@
 package com.exe.paradox.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +44,17 @@ public class PrizesAdapter extends RecyclerView.Adapter<PrizesAdapter.PrizesView
         Picasso.get()
                 .load(prize.getImage())
                 .into(holder.imageView);
+        if (prize.getUrl() != null
+        && !prize.getUrl().isEmpty()){
+            holder.itemView.setOnClickListener(view->launchWebsite(prize.getUrl()));
+        }
+    }
+
+    private void launchWebsite(String url) {
+        if (!url.startsWith("http://") && !url.startsWith("https://")) 	url = "http://" + url;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        context.startActivity(i);
     }
 
     @Override

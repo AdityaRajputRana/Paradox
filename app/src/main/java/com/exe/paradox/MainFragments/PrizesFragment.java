@@ -39,6 +39,7 @@ public class PrizesFragment extends Fragment {
 
     private void loadPrizes() {
         if (prizesRP != null) {
+            updateUI();
             return;
         }
 
@@ -61,6 +62,7 @@ public class PrizesFragment extends Fragment {
 
     private void updateUI() {
         PrizesAdapter adapter = new PrizesAdapter(getActivity(), prizesRP);
+        binding.progressBar.setVisibility(View.GONE);
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.recyclerView.setVisibility(View.VISIBLE);

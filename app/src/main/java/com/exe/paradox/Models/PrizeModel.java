@@ -9,6 +9,10 @@ public class PrizeModel {
     public PrizeModel() {
     }
 
+    public String getUrl() {
+        return url;
+    }
+
     public String getTitle() {
         return title;
     }
