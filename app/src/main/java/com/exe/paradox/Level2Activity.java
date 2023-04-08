@@ -3,6 +3,7 @@ package com.exe.paradox;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -85,6 +86,9 @@ public class Level2Activity extends AppCompatActivity {
     }
 
     private void setQuestion(Level2RP response) {
+        binding.progressBar.setVisibility(View.GONE);
+        binding.questionLayout.setVisibility(View.VISIBLE);
+        binding.answerEt.setText("");
 
         if (response.isLevelComplete()){
             //Todo: handle UI when the level is completed!
@@ -96,8 +100,15 @@ public class Level2Activity extends AppCompatActivity {
             Method.showFailedAlert(this, "No more questions found!");
             return;
         }
+        if (response.getNextQuestion().isAnswerRequired()){
+            binding.answerEt.setVisibility(View.VISIBLE);
+            binding.submitBtn.setVisibility(View.VISIBLE);
+        } else {
+            binding.submitBtn.setVisibility(View.GONE);
+            binding.answerEt.setVisibility(View.GONE);
+        }
 
-        binding.questionNumberTxt.setText(String.valueOf(response.getNextQuestion().getQuestionNo()));
+        binding.questionNumberTxt.setText("Q"+String.valueOf(response.getNextQuestion().getQuestionNo()));
         binding.questionTxt.setText(response.getNextQuestion().getQuestion());
 
         Picasso.get()

@@ -90,6 +90,7 @@ public class Level1Activity extends AppCompatActivity {
     }
 
     private void setQuestion(Level1RP response) {
+        binding.answerEt.setText("");
         if (response.isLevelComplete()){
             //Todo: handle UI when the level is completed!
             Toast.makeText(this, "Level Completed!", Toast.LENGTH_SHORT).show();

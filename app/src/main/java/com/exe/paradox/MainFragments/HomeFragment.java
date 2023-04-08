@@ -122,6 +122,7 @@ public class HomeFragment extends Fragment {
             topTxt.setText("GAME OVER");
             middleTxt.setVisibility(View.GONE);
             bottomTxt.setTextSize(14);
+            teamInfoLayout.setVisibility(View.GONE);
             bottomTxt.setText("Paradox ended for this year. This year's paradox has been a success and team .EXE is thankful for that.\nHope to see you again next year at NIMBUS\n\n Developed by Aditya Rana, Akhil Jamwal and Aryan Prashar");
             levelEndsInTxt.setVisibility(View.VISIBLE);
             levelEndsInTxt.setText("To check results please head over to leaderboard section.");
