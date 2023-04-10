@@ -55,8 +55,8 @@
 
             <ImageView
                 android:id="@+id/iv_paradox"
-                android:layout_width="200dp"
-                android:layout_height="290dp"
+                android:layout_width="195dp"
+                android:layout_height="285dp"
                 android:layout_marginBottom="90dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"

@@ -2,193 +2,217 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:background="@color/color_bg"
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="275dp">
 
-    <TextView
-        android:id="@+id/infoTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:fontFamily="@font/poppins_semibold"
-        android:textColor="@color/color_primary_txt"
-        android:textSize="18sp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_height="wrap_content"
-        android:id="@+id/topLayout"
-        android:padding="16dp"
-        android:clipToPadding="false"
-        android:background="@drawable/bg_semiround_prim"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_home_top3">
 
-        <LinearLayout
-            android:elevation="20dp"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/firstLayout"
-            android:gravity="center_horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:fontFamily="@font/quantum"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:text="Top Scorers"
+            android:textAlignment="center"
+            android:layout_marginVertical="5dp"/>
 
-            <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp">
+
+            <FrameLayout
+                android:id="@+id/winner_frame"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:id="@+id/firstTextLayout"
-                android:orientation="vertical">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/leaderboard_winner_bg">
 
-                <TextView
-                    android:id="@+id/firstNameTxt"
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/color_primary_txt"
-                    android:textSize="18sp" />
+                    android:src="@drawable/hexagon1"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="20dp"/>
 
-                <TextView
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    app:cardCornerRadius="70dp">
+
+                    <ImageView
+                        android:id="@+id/firstImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_profile_bg_circle"/>
+
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstNameTxt"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintTop_toBottomOf="@id/winner_frame"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstScoreTxt"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintTop_toBottomOf="@id/firstNameTxt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
+
+            <FrameLayout
+                android:id="@+id/runner_up_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="45dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/leaderboard_runnerup_bg">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="70dp">
+
+                    <ImageView
+                        android:id="@+id/secondImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_profile_bg_circle"
+                        android:scaleType="centerCrop"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/firstScoreTxt"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="16sp"
-                    android:textColor="@color/color_secondary_txt" />
-            </LinearLayout>
+                    android:src="@drawable/hexagon2"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="5dp"/>
 
-            <LinearLayout
-                android:layout_width="105dp"
-                android:layout_height="105dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/bg_leaderboard_circle_gold"
-                >
+            </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/firstImage"
-                    android:layout_width="95dp"
-                    android:src="@drawable/ic_profile_bg_circle"
-                    android:layout_height="95dp" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/secondLayout"
-            android:elevation="10dp"
-            android:gravity="center_horizontal"
-            app:layout_constraintTop_toBottomOf="@id/firstLayout"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@id/firstLayout"
-            android:layout_marginEnd="-20dp"
-            android:layout_marginTop="-75dp">
-
-            <LinearLayout
-                android:layout_width="95dp"
-                android:layout_height="95dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/bg_leaderboard_circle_silver"
-                >
-
-                <ImageView
-                    android:id="@+id/secondImg"
-                    android:layout_width="85dp"
-                    android:src="@drawable/ic_profile_bg_circle"
-                    android:layout_height="85dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:id="@+id/secondNameTxt"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/winner_frame"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/secondScoreTxt"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
 
-                <TextView
-                    android:id="@+id/secondNameTxt"
-                    android:layout_width="105dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
-                    android:textAlignment="center"
-                    android:textColor="@color/color_primary_txt"
-                    android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="105dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/secondScoreTxt"
-                    android:fontFamily="@font/poppins"
-                    android:textAlignment="center"
-                    android:textSize="14sp"
-                    android:textColor="@color/color_secondary_txt" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/thirdLayout"
-            android:gravity="center_horizontal"
-            android:elevation="5dp"
-            app:layout_constraintTop_toBottomOf="@id/firstLayout"
-            android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@id/firstLayout"
-            android:layout_marginStart="-20dp"
-            android:layout_marginTop="-75dp">
-
-            <LinearLayout
-                android:layout_width="95dp"
-                android:layout_height="95dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/bg_leaderboard_circle_bronse"
-                >
-
-                <ImageView
-                    android:id="@+id/thirdImg"
-                    android:layout_width="85dp"
-                    android:src="@drawable/ic_profile_bg_circle"
-                    android:layout_height="85dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:id="@+id/secondScoreTxt"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/winner_frame"
+                app:layout_constraintTop_toBottomOf="@id/secondNameTxt"
+                app:layout_constraintBottom_toTopOf="@id/runner_up_frame"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
 
-                <TextView
-                    android:layout_width="105dp"
+            <FrameLayout
+                android:id="@+id/runner_up_2nd_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="45dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/leaderboard_2ndrunnerup_bg">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="70dp">
+
+                    <ImageView
+                        android:id="@+id/thirdImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_profile_bg_circle"
+                        android:scaleType="centerCrop"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/thirdNameTxt"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins_medium"
-                    android:textSize="16sp"
-                    android:textColor="@color/color_primary_txt" />
+                    android:src="@drawable/hexagon3"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="5dp"/>
 
-                <TextView
-                    android:layout_width="105dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:id="@+id/thirdScoreTxt"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="14sp"
-                    android:textColor="@color/color_secondary_txt" />
-            </LinearLayout>
+            </FrameLayout>
 
-        </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirdNameTxt"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toEndOf="@id/winner_frame"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/thirdScoreTxt"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirdScoreTxt"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toEndOf="@id/winner_frame"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/thirdNameTxt"
+                app:layout_constraintBottom_toTopOf="@id/runner_up_2nd_frame"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
