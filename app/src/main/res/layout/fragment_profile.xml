@@ -95,6 +95,7 @@
                         android:textSize="24sp"
                         android:fontFamily="@font/quantum"
                         android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/nameTxt"/>
