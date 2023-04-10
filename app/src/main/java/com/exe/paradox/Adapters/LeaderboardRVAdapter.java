@@ -55,7 +55,7 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
         if (viewType == 0)
             return new PositionViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_leaderboard_top, parent, false));
         else
-            return new RankViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_leaderboard, parent, false));
+            return new RankViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_leaderboard_part, parent, false));
     }
 
     @Override
