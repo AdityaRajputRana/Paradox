@@ -9,6 +9,17 @@ public class QuestionL2 {
     boolean isAnswerRequired;
     String answer; //Not to be given by server
 
+    String hint;
+    boolean isHintAvailable;
+
+    public String getHint() {
+        return hint;
+    }
+
+    public boolean isHintAvailable() {
+        return isHintAvailable;
+    }
+
     public QuestionL2() {
     }
 

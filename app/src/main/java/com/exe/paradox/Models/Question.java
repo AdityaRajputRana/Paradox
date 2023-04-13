@@ -8,6 +8,17 @@ public class Question {
     String questionId;
     String question;
     String image;
+    String hint;
+    boolean isHintAvailable;
+
+    public String getHint() {
+        return hint;
+    }
+
+    public boolean isHintAvailable() {
+        return isHintAvailable;
+    }
+
     String answer; //Not to be given by server
 
     public Question() {

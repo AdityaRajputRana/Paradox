@@ -112,6 +112,25 @@ public class Level1Activity extends AppCompatActivity {
                 .load(response.getNextQuestion().getImage())
                 .into(binding.questionImg);
 
+        if (response.getNextQuestion().isHintAvailable()){
+            binding.hintLayout.setVisibility(View.VISIBLE);
+            binding.hintAvailableTxt.setText("Hint Available:");
+            binding.hintTxt.setText("Click to unlock\n(30 points");
+            binding.hintLayout.setOnClickListener(view -> getHint());
+            if (response.getNextQuestion().getHint() != null
+            && !response.getNextQuestion().getHint().isEmpty()){
+                binding.hintLayout.setOnClickListener(null);
+                binding.hintAvailableTxt.setText("Hint:");
+                binding.hintTxt.setText(response.getNextQuestion().getHint());
+            }
+        } else {
+            binding.hintLayout.setVisibility(View.GONE);
+        }
+
+    }
+
+    private void getHint() {
+
     }
 
 }
