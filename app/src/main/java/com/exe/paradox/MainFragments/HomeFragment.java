@@ -113,7 +113,7 @@ public class HomeFragment extends Fragment {
         //showingBanners
 
         viewPager.setAdapter(null);
-        BannerPageAdapter adapter = new BannerPageAdapter(getActivity().getSupportFragmentManager(), homeRP.getBanners(), homeRP.getLeaderboard(), getActivity());
+        BannerPageAdapter adapter = new BannerPageAdapter(getChildFragmentManager(), homeRP.getBanners(), homeRP.getLeaderboard(), getActivity());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(0);
         viewPager.setCurrentItem(0);
