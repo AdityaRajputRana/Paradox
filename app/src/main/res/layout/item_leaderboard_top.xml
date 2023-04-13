@@ -117,11 +117,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/firstNameTxt"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintTop_toBottomOf="@id/winner_frame"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textSize="14sp"
+                android:layout_marginTop="4dp"
                 android:text="Aryan Prasher"
                 android:textColor="@color/white" />
 
@@ -177,12 +178,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/secondNameTxt"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/winner_frame"
-                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/poppins_medium"
+                app:layout_constraintStart_toStartOf="@id/runner_up_frame"
+                app:layout_constraintEnd_toEndOf="@id/runner_up_frame"
+                app:layout_constraintTop_toBottomOf="@id/runner_up_frame"
                 app:layout_constraintBottom_toTopOf="@id/secondScoreTxt"
                 android:textSize="14sp"
+                android:layout_marginTop="4dp"
                 android:text="Aditya Rana"
                 android:textColor="@color/white" />
 
@@ -192,10 +194,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/secondScoreTxt"
                 android:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/winner_frame"
+                app:layout_constraintStart_toStartOf="@id/runner_up_frame"
+                app:layout_constraintEnd_toEndOf="@id/runner_up_frame"
                 app:layout_constraintTop_toBottomOf="@id/secondNameTxt"
-                app:layout_constraintBottom_toTopOf="@id/runner_up_frame"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:textSize="14sp"
                 android:text="300 Points"
                 android:layout_marginTop="-2dp"
@@ -241,11 +243,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/thirdNameTxt"
                 android:fontFamily="@font/poppins"
-                app:layout_constraintStart_toEndOf="@id/winner_frame"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/runner_up_2nd_frame"
+                app:layout_constraintEnd_toEndOf="@id/runner_up_2nd_frame"
+                app:layout_constraintTop_toBottomOf="@id/runner_up_2nd_frame"
                 app:layout_constraintBottom_toTopOf="@id/thirdScoreTxt"
                 android:textSize="14sp"
+                android:layout_marginTop="4dp"
                 android:text="Akhil Jamwal"
                 android:textColor="@color/white" />
 
@@ -255,10 +258,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/thirdScoreTxt"
                 android:fontFamily="@font/poppins"
-                app:layout_constraintStart_toEndOf="@id/winner_frame"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/runner_up_2nd_frame"
+                app:layout_constraintEnd_toEndOf="@id/runner_up_2nd_frame"
                 app:layout_constraintTop_toBottomOf="@id/thirdNameTxt"
-                app:layout_constraintBottom_toTopOf="@id/runner_up_2nd_frame"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:textSize="14sp"
                 android:layout_marginTop="-2dp"
                 android:text="250 Points"
@@ -286,6 +289,7 @@
             android:layout_height="60dp"
             android:id="@+id/rankLayout"
             android:layout_marginHorizontal="8dp"
+            android:paddingHorizontal="8dp"
             android:background="@drawable/bg_leaderboard_item">
 
             <androidx.cardview.widget.CardView
@@ -336,20 +340,20 @@
                         android:id="@+id/scoreTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="300"
+                        android:text="300 Points"
                         android:textSize="12sp"
                         android:fontFamily="@font/poppins"
                         android:textColor="@color/white"/>
 
-                    <TextView
-                        android:id="@+id/tv_leaderboard_person_level"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="3dp"
-                        android:text="Points"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/poppins"
-                        android:textColor="@color/white"/>
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_leaderboard_person_level"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="3dp"-->
+<!--                        android:text="Points"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:fontFamily="@font/poppins"-->
+<!--                        android:textColor="@color/white"/>-->
 
                 </LinearLayout>
 

@@ -88,7 +88,7 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
                         .load(leaderBoard.get(0).getDisplay_picture())
                         .transform(new CircleTransform())
                         .into(holder.firstImg);
-            holder.firstTxt.setText("1. " +leaderBoard.get(0).getUser_name());
+            holder.firstTxt.setText(leaderBoard.get(0).getUser_name());
             holder.firstScore.setText(leaderBoard.get(0).getScore() + points);
 
             if (leaderBoard.size() < 2) return;
@@ -98,7 +98,7 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
                         .load(leaderBoard.get(1).getDisplay_picture())
                         .transform(new CircleTransform())
                         .into(holder.secondImg);
-            holder.secondTxt.setText("2. " +leaderBoard.get(1).getUser_name());
+            holder.secondTxt.setText(leaderBoard.get(1).getUser_name());
             holder.secondScore.setText(leaderBoard.get(1).getScore() + points);
 
             if (leaderBoard.size() < 3) return;
@@ -109,7 +109,7 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
                         .load(leaderBoard.get(2).getDisplay_picture())
                         .transform(new CircleTransform())
                         .into(holder.thirdImg);
-            holder.thirdTxt.setText("3. " +leaderBoard.get(2).getUser_name());
+            holder.thirdTxt.setText(leaderBoard.get(2).getUser_name());
             holder.thirdScore.setText(leaderBoard.get(2).getScore() + points );
 
             if (FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()
@@ -121,6 +121,7 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
             }
 
             if (RanklistRP.getMy_rank() != null && RanklistRP.getMy_rank().getRank() != -1){
+                holder.myNameTxt.setText(RanklistRP.getMy_rank().getUser_name());
                 holder.rankTxt.setText(String.valueOf(RanklistRP.getMy_rank().getRank()));
                 holder.scoreTxt.setText(RanklistRP.getMy_rank().getScore() + points);
             } else {
@@ -196,6 +197,8 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
         ImageView displayImg;
         LinearLayout myRankLayout;
 
+        TextView myNameTxt;
+
 
         public PositionViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -222,6 +225,7 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
             levelTxt = itemView.findViewById(R.id.levelTxt);
             levelLayout  = itemView.findViewById(R.id.levelLayout);
             myRankLayout = itemView.findViewById(R.id.myRankLayout);
+            myNameTxt = itemView.findViewById(R.id.nameMineTxt);
         }
     }
 

@@ -21,10 +21,16 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PARADOX" />
+        <ImageView
+            android:id="@+id/iv_heading"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:src="@drawable/paradox_glow_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"/>
 
 
         <androidx.cardview.widget.CardView
@@ -74,28 +80,41 @@
             android:layout_marginTop="32dp"
             android:padding="16dp"
             android:orientation="vertical"
-            android:background="@android:color/holo_blue_light">
+            android:background="@drawable/bg_team_selection_dialogue">
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textAlignment="center"
-                android:id="@+id/topTxt"
-                android:textSize="24sp"
-                android:fontFamily="@font/poppins"
-                android:text="Level" />
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:id="@+id/topTxt"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/quantum"
+                    android:padding="2dp"
+                    android:text="LEVEL  :" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textAlignment="center"
-                android:id="@+id/middleTxt"
-                android:textSize="48sp"
-                android:fontFamily="@font/poppins"
-                android:text="1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:layout_marginStart="30dp"
+                    android:id="@+id/middleTxt"
+                    android:textSize="48sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="1" />
+
+            </LinearLayout>
+
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -104,8 +123,9 @@
                 android:textAlignment="center"
                 android:id="@+id/bottomTxt"
                 android:textSize="24sp"
-                android:fontFamily="@font/poppins"
-                android:text="Enter" />
+                android:fontFamily="@font/quantum"
+                android:layout_marginBottom="10dp"
+                android:text="@string/enter" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,18 +135,35 @@
                 android:clipToPadding="false"
                 android:id="@+id/teamInfoLayout">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:id="@+id/nameTxt"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Aditya Rana" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Name : " />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:id="@+id/nameTxt"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins"
+                        android:text="Aditya Rana" />
+
+                </LinearLayout>
+
+
 
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:id="@+id/teamTxt"
@@ -139,13 +176,14 @@
             <TextView
                 android:padding="8dp"
                 android:visibility="gone"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:id="@+id/endsInText"
-                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_medium"
                 android:textAlignment="center"
-                android:fontFamily="@font/poppins"
                 android:text="Level ends in " />
 
 
