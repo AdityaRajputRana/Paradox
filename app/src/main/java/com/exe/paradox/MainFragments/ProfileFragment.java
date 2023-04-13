@@ -109,11 +109,11 @@ public class ProfileFragment extends Fragment {
             binding.scoreTxt.setText(String.valueOf(user.getScore()));
         }
 
-        if (user.getCoins() != -1){
-            binding.coinsTxt.setVisibility(View.VISIBLE);
-            binding.coins.setVisibility(View.VISIBLE);
-            binding.coinsTxt.setText(String.valueOf(user.getCoins()));
-        }
+//        if (user.getCoins() != -1){
+//            binding.coinsTxt.setVisibility(View.VISIBLE);
+//            binding.coins.setVisibility(View.VISIBLE);
+//            binding.coinsTxt.setText(String.valueOf(user.getCoins()));
+//        }
 
 
         if (user.getAttempts() != -1){
