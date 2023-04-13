@@ -24,9 +24,17 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
 
     RanklistRP RanklistRP;
     String points = " Points";
+    LeaderboardListener listener;
+    boolean isLevel1Lb = true;
 
-    public LeaderboardRVAdapter(RanklistRP RanklistRP){
+    public interface LeaderboardListener{
+        void flipLevel();
+    }
+
+    public LeaderboardRVAdapter(RanklistRP RanklistRP, LeaderboardListener listener, boolean isLevel1Lb){
         this.RanklistRP = RanklistRP;
+        this.listener = listener;
+        this.isLevel1Lb = isLevel1Lb;
     }
 
     @Override
@@ -73,6 +81,7 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
             holder.topLayout.setVisibility(View.VISIBLE);
             ArrayList<RankModel> leaderBoard = RanklistRP.getLeaderboard();
 
+
             if (leaderBoard.get(0).getDisplay_picture() != null
                     && !leaderBoard.get(0).getDisplay_picture().isEmpty())
                 Picasso.get()
@@ -115,9 +124,18 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
                 holder.rankTxt.setText(String.valueOf(RanklistRP.getMy_rank().getRank()));
                 holder.scoreTxt.setText(RanklistRP.getMy_rank().getScore() + points);
             } else {
+                if (!isLevel1Lb)
+                    holder.myRankLayout.setVisibility(View.GONE);
                 holder.rankTxt.setText("-");
                 holder.scoreTxt.setText("0" + points);
             }
+
+            if (isLevel1Lb)
+                holder.levelTxt.setText("Level 1");
+            else
+                holder.levelTxt.setText("Level 2");
+
+            holder.levelLayout.setOnClickListener(view -> listener.flipLevel());
 
         }
         else if (viewHolder instanceof RankViewHolder){
@@ -155,6 +173,9 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
 
     public class PositionViewHolder extends RecyclerView.ViewHolder{
 
+        TextView levelTxt;
+        LinearLayout levelLayout;
+
         TextView infoTxt;
         LinearLayout topLayout;
         ImageView firstImg;
@@ -173,6 +194,8 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
         TextView nameTxt;
         TextView scoreTxt;
         ImageView displayImg;
+        LinearLayout myRankLayout;
+
 
         public PositionViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -196,6 +219,9 @@ public class LeaderboardRVAdapter extends RecyclerView.Adapter {
 
             topLayout = itemView.findViewById(R.id.contentLayout);
             infoTxt = itemView.findViewById(R.id.infoTxt);
+            levelTxt = itemView.findViewById(R.id.levelTxt);
+            levelLayout  = itemView.findViewById(R.id.levelLayout);
+            myRankLayout = itemView.findViewById(R.id.myRankLayout);
         }
     }
 

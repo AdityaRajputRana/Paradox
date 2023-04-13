@@ -8,6 +8,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/levelLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -35,6 +36,18 @@
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_heading" />
+
+        <TextView
+            android:id="@+id/levelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quantum"
+            android:text="Level 1"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_heading" />
 
     </LinearLayout>
 
@@ -233,7 +246,11 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+<LinearLayout
+    android:id="@+id/myRankLayout"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -348,7 +365,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+</LinearLayout>
     <TextView
         android:id="@+id/nameTxt"
         android:layout_width="match_parent"

@@ -61,6 +61,11 @@ public class APIMethods {
         API.postData(listener, req, EndPoints.rankList, RanklistRP.class);
     }
 
+    public static void getLevel2ranklist(APIResponseListener<RanklistRP> listener){
+        HomeReq req = new HomeReq();
+        API.postData(listener, req, EndPoints.level2rankList, RanklistRP.class);
+    }
+
 
     public static void getProfile(APIResponseListener<User> listener){
         HomeReq req = new HomeReq();

@@ -17,11 +17,16 @@ import com.exe.paradox.rest.api.APIMethods;
 import com.exe.paradox.rest.api.interfaces.APIResponseListener;
 import com.exe.paradox.rest.response.RanklistRP;
 
-public class LeaderboardFragment extends Fragment {
+public class LeaderboardFragment extends Fragment implements LeaderboardRVAdapter.LeaderboardListener{
 
     FragmentLeaderboardBinding binding;
     LeaderboardRVAdapter adapter;
     LinearLayoutManager manager;
+
+    boolean level1Shown = true;
+    RanklistRP level1RP;
+    RanklistRP level2RP;
+
 
 
     public LeaderboardFragment() {
@@ -29,24 +34,49 @@ public class LeaderboardFragment extends Fragment {
     }
 
 
-    private void loadRankList() {
-        APIMethods.getRanklist(new APIResponseListener<RanklistRP>() {
-            @Override
-            public void success(RanklistRP response) {
-                binding.progressBar.setVisibility(View.GONE);
-                adapter = new LeaderboardRVAdapter(response);
-                manager = new LinearLayoutManager(getActivity());
-                binding.recyclerView.setAdapter(adapter);
-                binding.recyclerView.setLayoutManager(manager);
-                binding.recyclerView.setVisibility(View.VISIBLE);
-            }
 
-            @Override
-            public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
-                binding.progressBar.setVisibility(View.GONE);
-                Method.showFailedAlert(getActivity(), code + " - " + message);
-            }
-        });
+
+    private void loadRankList() {
+        if (level1Shown) {
+            APIMethods.getRanklist(new APIResponseListener<RanklistRP>() {
+                @Override
+                public void success(RanklistRP response) {
+                    level1Shown = true;
+                    level1RP = response;
+                    showLeaderboard(response);
+                }
+
+                @Override
+                public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    Method.showFailedAlert(getActivity(), code + " - " + message);
+                }
+            });
+        } else {
+            APIMethods.getLevel2ranklist(new APIResponseListener<RanklistRP>() {
+                @Override
+                public void success(RanklistRP response) {
+                    level1Shown = false;
+                    level2RP = response;
+                    showLeaderboard(response);
+                }
+
+                @Override
+                public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    Method.showFailedAlert(getActivity(), code + " - " + message);
+                }
+            });
+        }
+    }
+
+    private void showLeaderboard(RanklistRP response) {
+        binding.progressBar.setVisibility(View.GONE);
+        adapter = new LeaderboardRVAdapter(response, this::flipLevel, level1Shown);
+        manager = new LinearLayoutManager(getActivity());
+        binding.recyclerView.setAdapter(adapter);
+        binding.recyclerView.setLayoutManager(manager);
+        binding.recyclerView.setVisibility(View.VISIBLE);
     }
 
 
@@ -57,5 +87,22 @@ public class LeaderboardFragment extends Fragment {
         binding = FragmentLeaderboardBinding.inflate(inflater, container, false);
         loadRankList();
         return binding.getRoot();
+    }
+
+    @Override
+    public void flipLevel() {
+        level1Shown = !level1Shown;
+
+        if (level1Shown && level1RP != null)
+            showLeaderboard(level1RP);
+        else if (!level1Shown && level2RP != null)
+            showLeaderboard(level2RP);
+        else {
+            binding.recyclerView.setVisibility(View.GONE);
+            binding.progressBar.setVisibility(View.VISIBLE);
+        }
+
+        loadRankList();
+
     }
 }
