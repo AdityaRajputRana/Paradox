@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "969768597990",
-    "project_id": "paradox-exe",
-    "storage_bucket": "paradox-exe.appspot.com"
+    "project_number": "709418936532",
+    "project_id": "paradox-ab579",
+    "storage_bucket": "paradox-ab579.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:969768597990:android:dee7e64bd8206aa88f3e27",
+        "mobilesdk_app_id": "1:709418936532:android:33eaad932984609b213341",
         "android_client_info": {
           "package_name": "com.exe.paradox"
         }
       },
       "oauth_client": [
         {
-          "client_id": "969768597990-5atd8t54r910g9u5qa5bjogb19adch54.apps.googleusercontent.com",
+          "client_id": "709418936532-68vk557klrgk8i433i7cpue2n5o2k90s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.exe.paradox",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "969768597990-n9godlfh3b78cfo1a0ebo7o3ud3dnkf3.apps.googleusercontent.com",
+          "client_id": "709418936532-gsc0juftruf8dgraitndgb7qn4npnq9g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyABGtzvzgExzmCvHbDcfwsdrrAX7bpTM2I"
+          "current_key": "AIzaSyBNFkke0xnlx03hqy4W5OikRi5v2GyZtko"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "969768597990-558oockigjr2mm2kvogjr5fedb7333m8.apps.googleusercontent.com",
+              "client_id": "709418936532-2va65j2b4kuh72ojco8217jpqpeadtl2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

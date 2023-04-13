@@ -56,6 +56,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchHome() {
+
         progressBar.setVisibility(View.VISIBLE);
         mainLayout.setVisibility(View.GONE);
 
@@ -75,6 +76,7 @@ public class HomeFragment extends Fragment {
                 //Todo Show message more effectively with retry btn
             }
         });
+
     }
 
     private void showData() {
