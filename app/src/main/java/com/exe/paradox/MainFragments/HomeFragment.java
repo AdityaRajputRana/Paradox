@@ -1,6 +1,7 @@
 package com.exe.paradox.MainFragments;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -88,9 +89,9 @@ public class HomeFragment extends Fragment {
         }
 
         if (homeRP.isLevelActive()){
-            topTxt.setText("Level");
+            topTxt.setText("LEVEL  :");
             middleTxt.setText(homeRP.getLevelName());
-            bottomTxt.setText("Enter");
+            bottomTxt.setText(getString(R.string.enter));//string contains << >> character
             levelEndsInTxt.setVisibility(View.VISIBLE);
             TimeUtils.TimeDifference timeDifference = new TimeUtils().getTimeDifference();
             TimeUtils.getDifference(timeDifference, homeRP.getLevelEndsAt());
@@ -124,6 +125,13 @@ public class HomeFragment extends Fragment {
             topTxt.setText("GAME OVER");
             middleTxt.setVisibility(View.GONE);
             bottomTxt.setTextSize(14);
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0,40,0,20);
+            bottomTxt.setLayoutParams(params);
+            Typeface face= Typeface.createFromAsset(getActivity().getAssets(), "fonts/poppins.ttf");
+            bottomTxt.setTypeface(face);
+
             teamInfoLayout.setVisibility(View.GONE);
             bottomTxt.setText("Paradox ended for this year. This year's paradox has been a success and team .EXE is thankful for that.\nHope to see you again next year at NIMBUS\n\n Developed by Aditya Rana, Akhil Jamwal and Aryan Prashar");
             levelEndsInTxt.setVisibility(View.VISIBLE);

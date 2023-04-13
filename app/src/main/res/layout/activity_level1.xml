@@ -6,12 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Level1Activity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <FrameLayout
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
@@ -53,58 +49,85 @@
         </FrameLayout>
 
 
-
-    </LinearLayout>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:clipToPadding="false"
-        tools:context=".Level1Activity">
-
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="top"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:clipToPadding="false"
+            tools:context=".Level1Activity">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/questionNumberTxt"
-                android:text="Q3."
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="20sp"
-                android:layout_marginEnd="4dp"
-                android:textColor="@color/white" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/questionTxt"
-                android:text="What is the message that the image signifies?"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_medium" />
+                android:gravity="top"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/questionNumberTxt"
+                    android:text="Q3."
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="4dp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/questionTxt"
+                    android:text="What is the message that the image signifies?"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_medium" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1"
+                android:scaleType="centerInside"
+                tools:src="@drawable/enteringscreen"
+                android:id="@+id/questionImg" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
 
         </LinearLayout>
-
-        <ImageView
-            android:layout_marginTop="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            tools:src="@drawable/enteringscreen"
-            android:id="@+id/questionImg" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:padding="16dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/hintLayout"
@@ -163,11 +186,8 @@
             android:backgroundTint="#E04C40"
             android:layout_marginBottom="16dp" />
 
-
-
-
-
     </LinearLayout>
+
 
 </FrameLayout>
 

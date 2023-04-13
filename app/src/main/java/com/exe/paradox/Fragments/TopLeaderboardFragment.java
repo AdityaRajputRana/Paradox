@@ -63,7 +63,7 @@ public class TopLeaderboardFragment extends Fragment {
                     .load(leaderBoard.get(0).getDisplay_picture())
                     .transform(new CircleTransform())
                     .into(firstImg);
-        firstTxt.setText("1. " +leaderBoard.get(0).getUser_name());
+        firstTxt.setText(leaderBoard.get(0).getUser_name());
         firstScore.setText(leaderBoard.get(0).getScore() + points);
 
         if (leaderBoard.size() < 2) return;
@@ -73,7 +73,7 @@ public class TopLeaderboardFragment extends Fragment {
                     .load(leaderBoard.get(1).getDisplay_picture())
                     .transform(new CircleTransform())
                     .into(secondImg);
-        secondTxt.setText("2. " +leaderBoard.get(1).getUser_name());
+        secondTxt.setText(leaderBoard.get(1).getUser_name());
         secondScore.setText(leaderBoard.get(1).getScore() + points);
 
         if (leaderBoard.size() < 3) return;
@@ -84,7 +84,7 @@ public class TopLeaderboardFragment extends Fragment {
                     .load(leaderBoard.get(2).getDisplay_picture())
                     .transform(new CircleTransform())
                     .into(thirdImg);
-        thirdTxt.setText("3. " +leaderBoard.get(2).getUser_name());
+        thirdTxt.setText(leaderBoard.get(2).getUser_name());
         thirdScore.setText(leaderBoard.get(2).getScore() + points );
     }
 }
