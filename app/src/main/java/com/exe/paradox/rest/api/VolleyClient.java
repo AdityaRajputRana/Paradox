@@ -6,7 +6,7 @@ import com.exe.paradox.Essentials.Application;
 public class VolleyClient {
 
 //    public static String BASE_URL = "https://paradox-backend.onrender.com/";
-    public static String BASE_URL = "https://643f-2401-4900-4479-e62f-873d-df03-8336-e0e4.ngrok-free.app/";
+    public static String BASE_URL = "http://206.189.132.227/";
     public static String HOST= "quasar-edtech.vercel.app/edtech";
 
     public static String getBaseUrl() {
