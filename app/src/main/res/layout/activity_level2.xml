@@ -136,8 +136,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:minHeight="225dp"
-                android:background="@drawable/graph_bar"
+                android:scaleType="centerInside"
+                tools:src="@drawable/enteringscreen"
                 android:id="@+id/questionImg" />
 
 
