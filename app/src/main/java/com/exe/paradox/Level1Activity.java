@@ -33,7 +33,10 @@ public class Level1Activity extends AppCompatActivity {
 
     private void setSubmitListener() {
         binding.submitBtn.setOnClickListener(view ->{
-            if (binding.answerEt.getText().toString().isEmpty()){
+            String answer = binding.answerEt.getText().toString();
+            answer = answer.trim();
+            answer = answer.replace(" ", "");
+            if (answer.isEmpty()){
                 binding.answerEt.setError("Enter the answer");
                 return;
             }
@@ -41,7 +44,7 @@ public class Level1Activity extends AppCompatActivity {
             binding.answerEt.setError(null);
             progressDialog.show();
 
-            APIMethods.submitLevel1Answer(binding.answerEt.getText().toString(), new APIResponseListener<Level1RP>() {
+            APIMethods.submitLevel1Answer(answer, new APIResponseListener<Level1RP>() {
                 @Override
                 public void success(Level1RP response) {
                     progressDialog.dismiss();

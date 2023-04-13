@@ -31,15 +31,17 @@ public class Level2Activity extends AppCompatActivity {
 
     private void setSubmitListener() {
         binding.submitBtn.setOnClickListener(view ->{
-            if (binding.answerEt.getText().toString().isEmpty()){
+            String answer = binding.answerEt.getText().toString();
+            answer = answer.trim();
+            answer = answer.replace(" ", "");
+            if (answer.isEmpty()){
                 binding.answerEt.setError("Enter the answer");
                 return;
             }
-
             binding.answerEt.setError(null);
             binding.progressBar.setVisibility(View.VISIBLE);
 
-            APIMethods.submitLevel2Answer(binding.answerEt.getText().toString(), new APIResponseListener<Level2RP>() {
+            APIMethods.submitLevel2Answer(answer, new APIResponseListener<Level2RP>() {
                 @Override
                 public void success(Level2RP response) {
                     binding.progressBar.setVisibility(View.GONE);
