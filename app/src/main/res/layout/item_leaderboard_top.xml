@@ -70,13 +70,14 @@
 
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/topLayout"
-        android:padding="36dp"
-        android:background="@drawable/bg_semiround_prim"
-        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_semiround_prim"
+            android:padding="18dp"
+            android:id="@+id/topLayout"
+            app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
                 android:id="@+id/winner_frame"
@@ -111,6 +112,7 @@
                 </androidx.cardview.widget.CardView>
 
             </FrameLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,8 +121,11 @@
                 app:layout_constraintTop_toBottomOf="@id/winner_frame"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="Aryan Prasher"
                 android:textColor="@color/white" />
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,7 +134,9 @@
                 app:layout_constraintTop_toBottomOf="@id/firstNameTxt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:layout_marginTop="-2dp"
+                android:text="400 Points"
                 android:textColor="@color/white" />
 
             <FrameLayout
@@ -165,6 +172,7 @@
                     android:layout_marginStart="5dp"/>
 
             </FrameLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -174,8 +182,11 @@
                 app:layout_constraintEnd_toStartOf="@id/winner_frame"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/secondScoreTxt"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="Aditya Rana"
                 android:textColor="@color/white" />
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -185,7 +196,9 @@
                 app:layout_constraintEnd_toStartOf="@id/winner_frame"
                 app:layout_constraintTop_toBottomOf="@id/secondNameTxt"
                 app:layout_constraintBottom_toTopOf="@id/runner_up_frame"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="300 Points"
+                android:layout_marginTop="-2dp"
                 android:textColor="@color/white" />
 
             <FrameLayout
@@ -221,6 +234,8 @@
                     android:layout_marginStart="5dp"/>
 
             </FrameLayout>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -230,8 +245,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/thirdScoreTxt"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="Akhil Jamwal"
                 android:textColor="@color/white" />
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -241,7 +259,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/thirdNameTxt"
                 app:layout_constraintBottom_toTopOf="@id/runner_up_2nd_frame"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:layout_marginTop="-2dp"
+                android:text="250 Points"
                 android:textColor="@color/white" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -265,6 +285,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:id="@+id/rankLayout"
+            android:layout_marginHorizontal="8dp"
             android:background="@drawable/bg_leaderboard_item">
 
             <androidx.cardview.widget.CardView
@@ -293,15 +314,16 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_marginStart="15dp"
-                android:layout_marginVertical="15dp">
+                android:layout_marginVertical="10dp">
 
                 <TextView
                     android:id="@+id/nameMineTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lorem Ipsum"
-                    android:textSize="17sp"
-                    android:fontFamily="@font/quantum"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="-4dp"
+                    android:fontFamily="@font/poppins_semibold"
                     android:textColor="@color/white"/>
 
                 <LinearLayout
@@ -316,7 +338,7 @@
                         android:layout_height="wrap_content"
                         android:text="300"
                         android:textSize="12sp"
-                        android:fontFamily="@font/quantum"
+                        android:fontFamily="@font/poppins"
                         android:textColor="@color/white"/>
 
                     <TextView
@@ -326,7 +348,7 @@
                         android:layout_marginStart="3dp"
                         android:text="Points"
                         android:textSize="12sp"
-                        android:fontFamily="@font/quantum"
+                        android:fontFamily="@font/poppins"
                         android:textColor="@color/white"/>
 
                 </LinearLayout>

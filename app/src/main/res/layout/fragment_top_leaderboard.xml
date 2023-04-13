@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/color_bg"
     android:orientation="vertical"
     android:gravity="center"
@@ -72,7 +73,8 @@
                 app:layout_constraintTop_toBottomOf="@id/winner_frame"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="Aryan Prasher"
                 android:textColor="@color/white" />
 
 
@@ -84,7 +86,9 @@
                 app:layout_constraintTop_toBottomOf="@id/firstNameTxt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:layout_marginTop="-2dp"
+                android:text="400 Points"
                 android:textColor="@color/white" />
 
             <FrameLayout
@@ -130,7 +134,8 @@
                 app:layout_constraintEnd_toStartOf="@id/winner_frame"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/secondScoreTxt"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="Aditya Rana"
                 android:textColor="@color/white" />
 
 
@@ -143,7 +148,9 @@
                 app:layout_constraintEnd_toStartOf="@id/winner_frame"
                 app:layout_constraintTop_toBottomOf="@id/secondNameTxt"
                 app:layout_constraintBottom_toTopOf="@id/runner_up_frame"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="300 Points"
+                android:layout_marginTop="-2dp"
                 android:textColor="@color/white" />
 
             <FrameLayout
@@ -190,7 +197,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/thirdScoreTxt"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:text="Akhil Jamwal"
                 android:textColor="@color/white" />
 
 
@@ -203,7 +211,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/thirdNameTxt"
                 app:layout_constraintBottom_toTopOf="@id/runner_up_2nd_frame"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:layout_marginTop="-2dp"
+                android:text="250 Points"
                 android:textColor="@color/white" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
