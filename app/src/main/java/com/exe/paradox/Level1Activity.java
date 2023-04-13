@@ -130,7 +130,25 @@ public class Level1Activity extends AppCompatActivity {
     }
 
     private void getHint() {
+        View progressView = LayoutInflater.from(this).inflate(R.layout.dialog_processing, null, false);
+        progressDialog = new AlertDialog.Builder(this)
+                .setView(progressView)
+                .setCancelable(false)
+                .show();
 
+        APIMethods.getLevel1Hint(new APIResponseListener<Level1RP>() {
+            @Override
+            public void success(Level1RP response) {
+                progressDialog.dismiss();
+                setQuestion(response);
+            }
+
+            @Override
+            public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
+                progressDialog.dismiss();
+                Method.showFailedAlert(Level1Activity.this, code + " - " +  message);
+            }
+        });
     }
 
 }

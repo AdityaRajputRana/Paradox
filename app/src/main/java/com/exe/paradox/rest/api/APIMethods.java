@@ -96,4 +96,14 @@ public class APIMethods {
         HomeReq req = new HomeReq();
         API.postData(listener, req, EndPoints.getTeamDetails, TeamDetailsRP.class);
     }
+
+    public static void getLevel1Hint(APIResponseListener<Level1RP> listener){
+        HomeReq req = new HomeReq();
+        API.postData(listener, req, EndPoints.unlockLevel1Hint, Level1RP.class);
+    }
+
+    public static void getLevel2Hint(APIResponseListener<Level2RP> listener){
+        HomeReq req = new HomeReq();
+        API.postData(listener, req, EndPoints.unlockLevel1Hint, Level2RP.class);
+    }
 }

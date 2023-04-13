@@ -2,8 +2,10 @@ package com.exe.paradox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
@@ -136,5 +138,21 @@ public class Level2Activity extends AppCompatActivity {
     }
 
     private void getHint() {
+        binding.questionLayout.setVisibility(View.GONE);
+        binding.progressBar.setVisibility(View.VISIBLE);
+
+        APIMethods.getLevel2Hint(new APIResponseListener<Level2RP>() {
+            @Override
+            public void success(Level2RP response) {
+                binding.progressBar.setVisibility(View.GONE);
+                setQuestion(response);
+            }
+
+            @Override
+            public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
+                Method.showFailedAlert(Level2Activity.this, code + " - " +  message);
+                binding.progressBar.setVisibility(View.GONE);
+            }
+        });
     }
 }

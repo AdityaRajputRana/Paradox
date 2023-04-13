@@ -19,4 +19,8 @@ public class EndPoints {
 
     public static String level2Question = "play/level2/ques";
     public static String submitLevel2Answer = "play/level2/answer";
+
+    public static String unlockLevel1Hint = "play/level1/hint";
+    public static String unlockLevel2Hint = "play/level2/hint";
+
 }
