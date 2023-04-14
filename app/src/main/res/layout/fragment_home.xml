@@ -80,14 +80,9 @@
             android:layout_marginTop="32dp"
             android:padding="16dp"
             android:orientation="vertical"
+            android:gravity="center"
             android:background="@drawable/bg_team_selection_dialogue">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -95,10 +90,11 @@
                     android:textColor="@color/white"
                     android:gravity="center"
                     android:id="@+id/topTxt"
+                    android:layout_marginTop="16dp"
                     android:textSize="30sp"
                     android:fontFamily="@font/quantum"
                     android:padding="2dp"
-                    android:text="LEVEL  :" />
+                    android:text="LEVEL" />
 
 
                 <TextView
@@ -106,13 +102,11 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:textAlignment="center"
-                    android:layout_marginStart="30dp"
                     android:id="@+id/middleTxt"
-                    android:textSize="48sp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="54sp"
+                    android:padding="16dp"
+                    android:fontFamily="@font/quantum"
                     android:text="1" />
-
-            </LinearLayout>
 
 
 

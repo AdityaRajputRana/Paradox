@@ -11,9 +11,13 @@ public class CreateUserReq {
     public CreateUserReq(){
         FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser();
         if (u != null) {
+            this.name = u.getDisplayName();
+            if (u.getEmail().contains("@nith.ac.in")){
+                String username = u.getEmail().replace("@nith.ac.in", "");
+                this.name = name.replace(username, "").replace("_", "").trim();
+            }
             this.uid = u.getUid();
             this.email = u.getEmail();
-            this.name = u.getDisplayName();
             this.displayPicture = u.getPhotoUrl().toString();
         }
     }

@@ -272,7 +272,7 @@ public class LoginActivity extends AppCompatActivity implements OnConnectionFail
 
     private void findViews() {
         googleLoginBtn = findViewById(R.id.googleLoginBtn);
-        progressBar = findViewById(R.id.progresBar);
+        progressBar = findViewById(R.id.progressBar);
     }
 
     @Override
