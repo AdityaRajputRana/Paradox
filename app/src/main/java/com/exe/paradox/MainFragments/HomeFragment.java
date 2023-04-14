@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
     LinearLayout teamInfoLayout;
     LinearLayout levelLayout;
     ViewPager viewPager;
+    public static boolean isLevel1Running = true;
 
 
     public HomeFragment() {
@@ -121,6 +122,11 @@ public class HomeFragment extends Fragment {
         viewPager.setOffscreenPageLimit(0);
         viewPager.setCurrentItem(0);
 
+        if (homeRP.getLevel() == 1){
+            isLevel1Running = true;
+        } else {
+            isLevel1Running = false;
+        }
         if (homeRP.getLevel() == -1){
             topTxt.setText("GAME OVER");
             middleTxt.setVisibility(View.GONE);

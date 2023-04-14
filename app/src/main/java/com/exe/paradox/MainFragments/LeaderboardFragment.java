@@ -2,6 +2,7 @@ package com.exe.paradox.MainFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -24,6 +25,7 @@ public class LeaderboardFragment extends Fragment implements LeaderboardRVAdapte
     LinearLayoutManager manager;
 
     boolean level1Shown = true;
+    boolean isLevelSetFlag = true;
     RanklistRP level1RP;
     RanklistRP level2RP;
 
@@ -33,8 +35,14 @@ public class LeaderboardFragment extends Fragment implements LeaderboardRVAdapte
         // Required empty public constructor
     }
 
-
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (isLevelSetFlag) {
+            level1Shown = HomeFragment.isLevel1Running;
+            isLevelSetFlag = false;
+        }
+    }
 
     private void loadRankList() {
         if (level1Shown) {
@@ -64,7 +72,11 @@ public class LeaderboardFragment extends Fragment implements LeaderboardRVAdapte
                 @Override
                 public void fail(String code, String message, String redirectLink, boolean retry, boolean cancellable) {
                     binding.progressBar.setVisibility(View.GONE);
-                    Method.showFailedAlert(getActivity(), code + " - " + message);
+                    if (message.equals("Team not Found")){
+                        level1Shown = true;
+                        loadRankList();
+                    } else
+                        Method.showFailedAlert(getActivity(), code + " - " + message);
                 }
             });
         }
