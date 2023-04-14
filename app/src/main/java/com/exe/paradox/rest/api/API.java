@@ -85,7 +85,6 @@ public class API {
         try {
             String data = HashUtils.getHashedData(rawData);
             JSONObject request;
-            Log.i("eta", data);
             if (data.equals("\"{}\"")){
                 request = new JSONObject();
             } else {
@@ -94,15 +93,12 @@ public class API {
 
             String url = VolleyClient.getBaseUrl() + endpoint;
 
-            Log.i("eta data", data);
-            Log.i("eta url", url);
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.POST, url, request, new Response.Listener<JSONObject>() {
 
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                Log.i("Lesson Response", response.toString());
                                 Boolean successful = response.getBoolean("success");
                                 if (successful) {
                                     if (response.getString("data") != null
@@ -122,7 +118,6 @@ public class API {
                                     listener.fail("2", response.getString("message"), "", true, false);
                                 }
                             } catch (Exception e) {
-                                Log.i("Lesson Response", response.toString());
                                 listener.fail("1", "The received response is not good", "", true, false);
                                 e.printStackTrace();
                             }
