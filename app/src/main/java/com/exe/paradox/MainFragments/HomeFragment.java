@@ -116,11 +116,16 @@ public class HomeFragment extends Fragment {
 
         //showingBanners
 
-        viewPager.setAdapter(null);
-        BannerPageAdapter adapter = new BannerPageAdapter(getChildFragmentManager(), homeRP.getBanners(), homeRP.getLeaderboard(), getActivity());
-        viewPager.setAdapter(adapter);
-        viewPager.setOffscreenPageLimit(0);
-        viewPager.setCurrentItem(0);
+        if (homeRP.getLeaderboard() != null && homeRP.getLeaderboard().size() >= 3){
+            viewPager.setVisibility(View.GONE);
+        } else {
+            viewPager.setVisibility(View.VISIBLE);
+            viewPager.setAdapter(null);
+            BannerPageAdapter adapter = new BannerPageAdapter(getChildFragmentManager(), homeRP.getBanners(), homeRP.getLeaderboard(), getActivity());
+            viewPager.setAdapter(adapter);
+            viewPager.setOffscreenPageLimit(0);
+            viewPager.setCurrentItem(0);
+        }
 
         if (homeRP.getLevel() == 1){
             isLevel1Running = true;
