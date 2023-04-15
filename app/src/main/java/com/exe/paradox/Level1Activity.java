@@ -139,6 +139,7 @@ public class Level1Activity extends AppCompatActivity {
 
         Picasso.get()
                 .load(response.getNextQuestion().getImage())
+                .resize(2048, 2048)
                 .into(binding.questionImg);
 
         if (response.getNextQuestion().isHintAvailable()){

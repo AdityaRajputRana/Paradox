@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -32,6 +33,25 @@ public class Level2Activity extends AppCompatActivity {
     }
 
     private void setSubmitListener() {
+        binding.answerEt.setOnKeyListener(new View.OnKeyListener()
+        {
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    switch (keyCode)
+                    {
+                        case KeyEvent.KEYCODE_DPAD_CENTER:
+                        case KeyEvent.KEYCODE_ENTER:
+                            binding.submitBtn.performClick();
+                            return true;
+                        default:
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
         binding.submitBtn.setOnClickListener(view ->{
             String answer = binding.answerEt.getText().toString();
             answer = answer.trim();
@@ -117,7 +137,9 @@ public class Level2Activity extends AppCompatActivity {
 
         Picasso.get()
                 .load(response.getNextQuestion().getImage())
+                .resize(2048, 2048)
                 .into(binding.questionImg);
+
 
         binding.officerTxt.setText(String.valueOf(response.getOfficerType().getPosition()));
 

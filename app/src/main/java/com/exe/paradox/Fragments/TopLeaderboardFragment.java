@@ -57,8 +57,10 @@ public class TopLeaderboardFragment extends Fragment {
         TextView secondScore = view.findViewById(R.id.secondScoreTxt);
         TextView thirdScore = view.findViewById(R.id.thirdScoreTxt);
 
-        if (leaderBoard.get(0).getDisplay_picture() != null
-                && !leaderBoard.get(0).getDisplay_picture().isEmpty())
+        if (leaderBoard == null)
+            return;
+
+        if (leaderBoard.get(0).getDisplay_picture() != null && !leaderBoard.get(0).getDisplay_picture().isEmpty())
             Picasso.get()
                     .load(leaderBoard.get(0).getDisplay_picture())
                     .transform(new CircleTransform())
