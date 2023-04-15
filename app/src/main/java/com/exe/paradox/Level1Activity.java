@@ -3,9 +3,13 @@ package com.exe.paradox;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +31,37 @@ public class Level1Activity extends AppCompatActivity {
         binding = ActivityLevel1Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         fetchQuestion();
         setSubmitListener();
     }
 
     private void setSubmitListener() {
+        binding.answerEt.setOnKeyListener(new View.OnKeyListener()
+        {
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    switch (keyCode)
+                    {
+                        case KeyEvent.KEYCODE_DPAD_CENTER:
+                        case KeyEvent.KEYCODE_ENTER:
+                            binding.submitBtn.performClick();
+                            return true;
+                        default:
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
         binding.submitBtn.setOnClickListener(view ->{
+            View focus = this.getCurrentFocus();
+            if (focus != null) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(focus.getWindowToken(), 0);
+            }
             String answer = binding.answerEt.getText().toString();
             answer = answer.trim();
             answer = answer.replace(" ", "");

@@ -8,4 +8,6 @@
     <string name="instruction_query">For any query regarding the event, feel free to contact at teamexenith@gmail.com</string>
     <string name="mode_selection_string">Select the Mode you want to play.</string>
     <string name="enter"><![CDATA[<<< Enter >>>]]></string>
+
+    <string name="rules"></string>
 </resources>

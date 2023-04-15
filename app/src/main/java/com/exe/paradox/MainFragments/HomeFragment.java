@@ -116,7 +116,7 @@ public class HomeFragment extends Fragment {
 
         //showingBanners
 
-        if (homeRP.getLeaderboard() != null && homeRP.getLeaderboard().size() >= 3){
+        if (homeRP.getLeaderboard() == null || homeRP.getLeaderboard().size() < 3){
             viewPager.setVisibility(View.GONE);
         } else {
             viewPager.setVisibility(View.VISIBLE);
